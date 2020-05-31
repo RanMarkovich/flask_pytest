@@ -13,7 +13,7 @@ pipeline{
             }
         stage('run-flask-app'){
             steps{
-                sh 'docker run -d -p 5000:5000 flask-app:latest'
+                sh 'docker run -d -p 50000:50000 flask-app:latest'
                 }
             }
         stage('test-app'){

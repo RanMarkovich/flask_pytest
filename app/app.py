@@ -8,4 +8,4 @@ def hello_flask():
     return 'hello_flask', 200
 
 
-app.run(debug=True)
+app.run(host='0.0.0.0', port=50000, debug=True)
