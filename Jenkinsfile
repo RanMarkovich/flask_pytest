@@ -8,5 +8,14 @@ pipeline {
                 echo "${GIT_BRANCH}"
                 }
             }
+        stage('Docker Build') {
+            steps {
+                sh(script: 'docker images -a')
+            }
+        }
+            steps {
+                sh(script: 'docker build -t flask_app .')
+            }
         }
     }
+}
