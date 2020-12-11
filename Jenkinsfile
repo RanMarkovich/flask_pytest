@@ -1,6 +1,8 @@
 pipeline {
 
-    agent docker
+    agent {
+        docker { image 'node:14-alpine' }
+    }
 
     stages {
         stage('Verify Branch'){
