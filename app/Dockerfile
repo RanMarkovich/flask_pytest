@@ -1,5 +1,5 @@
 FROM python:alpine
-WORKDIR /app
+WORKDIR .
 COPY . .
 RUN pip install -r requirements.txt
-CMD python app/app.py
+CMD python app.py

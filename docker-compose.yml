@@ -12,11 +12,3 @@ services:
       - ./jenkins_data:/var/jenkins_home
       ##### Mac OS X and Linux ONLY #####
       - /var/run/docker.sock:/var/run/docker.sock
-
-  flask_app:
-    container_name: flask_app
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-        - 5000:5000
