@@ -1,20 +1,15 @@
 pipeline {
-
-    agent {
-        docker { image 'node:14-alpine' }
+  agent { docker { image 'python:3.7.2' } }
+  stages {
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
+      }
     }
-
-    stages {
-        stage('Verify Branch'){
-            steps {
-                echo "${GIT_BRANCH}"
-                }
-            }
-        stage('Docker Build') {
-            steps {
-                sh(script: 'docker images -a')
-                sh(script: 'docker build -t flask_app .')
-            }
-        }
+    stage('test') {
+      steps {
+        sh 'python test.py'
+      }
     }
+  }
 }
