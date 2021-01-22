@@ -1,14 +1,20 @@
 pipeline {
   agent { docker { image 'python:3.7.2' } }
   stages {
-    stage('hello world') {
+    stage('build') {
       steps {
-        echo 'hello world!'
+        sh 'docker-compose up -d --build flask_app'
+        sh 'pip install -r requirements.txt'
       }
     }
-    stage('goodbye world') {
+    stage('test') {
       steps {
-        echo 'goodbye world!'
+        sh 'pytest tests/test_app.py'
+      }
+    }
+    stage('tear down') {
+      steps {
+        sh 'docker rm -f flask_app'
       }
     }
   }
