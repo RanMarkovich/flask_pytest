@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh '/usr/local/bin/docker-compose up -d --build flask_app'
         sh 'pip install -r requirements.txt'
+        sh 'docker-compose up -d --build flask_app'
       }
     }
     stage('test') {
