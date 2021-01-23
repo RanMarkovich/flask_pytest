@@ -8,7 +8,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'pytest pytest app/tests'
+        sh 'pytest app/tests'
       }
     }
     stage('tear down') {
