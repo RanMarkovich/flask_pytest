@@ -1,3 +1,5 @@
+from time import sleep
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -9,3 +11,4 @@ def hello_flask():
 
 
 app.run(host='0.0.0.0', debug=True)
+sleep(10)
